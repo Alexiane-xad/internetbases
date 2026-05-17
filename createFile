@@ -1,0 +1,36 @@
+package s1_test;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.IOException;
+
+public class createFichier {
+	public static void main(String[] args) {
+		try {
+			PrintWriter pr = new PrintWriter(new File("/home/isha/eclipse-workspace/yuyanQIAN/src/s1_test/Nom.txt"));
+			pr.println("Victoria Eyhrabide");
+			pr.println("Claude Montacié");
+			pr.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//vérifier();
+	}
+	public static boolean vérifier() {
+		try {
+			BufferedReader br = new BufferedReader(
+					new FileReader(new File("/home/isha/eclipse-workspace/yuyanQIAN/src/s1_test/Nom.txt")));
+			if (br.readLine().equals("Victoria Eyhrabide") == false)
+				return false;
+			if (br.readLine().equals("Claude Montacié") == false)
+				return false;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+}
